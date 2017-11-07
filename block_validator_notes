@@ -1,0 +1,22 @@
+BlockValidator also does:
++ chain validation
+    - Is this block on a valid chain?
+    - Are all its predecessors known?
+  I think this should (if it isn't already) be the responsibility of the
+  completer. The block should be guaranteed to be from a valid chain before it
+  reaches the BlockValidator.
+
++ batch validation
+    - Are any transactions in this block duplicates that have occurred ANYWHERE
+      else in the history of the block chain.
+    - This is what ChainCommitState handles, which I think could also use a
+      little rework.
+
++ fork resolution
+    - Asks consensus if this should be the new fork.
+    - run() ultimately tells the ChainController whether or not to switch
+      forks.
+    I think it would make more sense to return the information needed to
+    resolve forks to the ChainController, and let it make the decision, so that
+    the fork resolution logic is in the ChainController and not in the
+    BlockValidator.
