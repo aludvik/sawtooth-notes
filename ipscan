@@ -1,0 +1,84 @@
+apt
+---
+
+python3-sawtooth-identity
+python3-sawtooth-poet-sgx
+  a) These are Sawtooth packages that we build and distribute.
+  b) Runtime, iff the deployment is using that package.
+
+python3
+  a) Sawtooth is written in python3
+  b) Runtime
+
+gcc
+openssl
+libssl1.0.0
+  a) libssl1.0.0 was added to support loading key pairs generated with openssl.
+     It is used in the Rust and Go Client SDKs. openssl is installed in the Seth
+     docker image for demonstration purposes, but is run separately from any
+     Sawtooth components.
+  b) libssl1.0.0 is runtime iff using the Rust or Go client SDKs. openssl is
+     not runtime.
+
+telegraf
+python3-pyformance
+  a) These are used to collect stats and metrics from a running deployment and
+     publish them to a dashboard.
+  b) Optional runtime dependencies
+
+alien
+libcurl4-openssl-dev
+libprotobuf-dev
+libxml2-dev
+uuid-dev
+  a) These were added to the SGX Installation instructions because they were
+     part of the Intel instructions here: https://download.01.org/intel-sgx/linux-1.8/docs/Intel_SGX_SDK_Installation_Guide_Linux_1.8_Open_Source.pdf
+  b) alien is a build dependency. I am not sure if the others are build or
+     runtime, need to check with Ryan.
+
+protobuf-compiler
+python
+ocaml
+  a) These are part of the SGX Installation instructions but are not in the
+     Intel guide. I need to check with Ryan.
+  b) Not sure.
+
+libcrypto++9v5
+liblog4cxx10v5
+libzmqpp3
+  a) These are installed by the C++ SDK.
+  b) I believe these are runtime dependencies for anyone using the C++ SDK.
+     Dan or Cian would know more.
+
+python-psycopg2
+python3-aiopg
+python3-psycopg2
+  a) These are installed as part of the vagrant environment.
+  b) These are optional development dependencies, but not runtime dependencies.
+
+solc
+  a) This can be used by Solidity developers to compile Solidity smart
+     contracts. It is included in the Seth docker image for demonstration
+     purposes.
+  b) Not a dependency.
+
+pip
+---
+mock
+  a) This is used in python3 unittests.
+  b) Test dependency (not runtime).
+pyformance
+  a) These are used to collect stats and metrics from a running deployment and
+     publish them to a dashboard.
+  b) Optional runtime dependencies
+setuptools
+  a) This is used to build Sawtooth python3 packages.
+  b) Build/installation dependency, not a runtime dependency.
+
+npm
+---
+ethereumjs-abi
+web3
+  a) These can be used by Solidity developers to interact with Seth. They are
+     included in the Seth docker image for demonstration purposes.
+  b) Not a dependency.
