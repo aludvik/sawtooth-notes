@@ -20,3 +20,10 @@ BlockValidator also does:
     resolve forks to the ChainController, and let it make the decision, so that
     the fork resolution logic is in the ChainController and not in the
     BlockValidator.
+
+Possible next steps:
+- move the blocks processing and pending queues into the block validator
+- remove (all?) references to the chain head from the block validator
+- remove `consensus` from the `BlockValidator.process_block_verification()`
+  arguemts and instead load it when the block is processed
+- remove `callback` from the same and instead use the Observer pattern (edited)
