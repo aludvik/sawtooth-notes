@@ -82,3 +82,56 @@ web3
   a) These can be used by Solidity developers to interact with Seth. They are
      included in the Seth docker image for demonstration purposes.
   b) Not a dependency.
+
+
+
+TST apache2
+BLD apt-transport-https
+BLD ca-certificates
+BLD connect-proxy
+BLD equivs
+RUN base64
+BLD libjson-c-dev
+BLD libjson0
+RUN libzmq3-dev
+OPT nodejs  (JavaScript)
+OPT openjdk-7-jdk  (Java)
+OPT openjdk-8-jdk  (Java)
+OPT protobuf  (C++)
+RUN python3-aiodns
+RUN python3-aiohttp
+BLD python3-appdirs
+RUN python3-async-timeout
+RUN python3-bitcoin
+RUN python3-cbor
+RUN python3-cchardet
+RUN python3-cffi
+RUN python3-chardet
+RUN python3-colorlog
+RUN python3-cryptography
+RUN python3-cryptography-vectors
+OPT python3-ecdsa (SGX)
+TST python3-flake8
+BLD python3-grpcio
+BLD python3-grpcio-tools
+BLD python3-hypothesis
+BLD python3-idna
+BLD python3-iso8601
+RUN python3-lmdb
+RUN python3-multidict
+RUN python3-netifaces
+BLD python3-pretend
+RUN python3-protobuf
+BLD python3-pyasn1
+BLD python3-pyasn1-modules
+RUN python3-pycares
+BLD python3-pycparser
+RUN python3-pytz
+RUN python3-requests
+RUN python3-secp256k1
+RUN python3-six
+RUN python3-toml
+RUN python3-yaml
+RUN python3-yarl
+RUN python3-zmq
+BLD swig3.0
