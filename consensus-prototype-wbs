@@ -1,0 +1,54 @@
+Architecture Changes (12/1)
+  Merge in master
+  Clean boundaries (Chain Controller, Block Publisher, Block Validator, Block Cache/Block Store, Completer, and TEP)
+    Create block validation pipeline
+    Implement observer pattern for block validation
+    Implement single reader/writer for Block Store, all other access through Block Cache
+    Implement single cache for batches
+    Remove knowledge of chains and forks from Block Validator
+    ...
+  Define how dynamic, pluggable consensus works
+    Configuration (on-chain)
+    Dynamic loading (wait for required engine)
+    ...
+  Give Consensus Proxy control of Block Publisher, Chain Controller
+    Define new methods for Publisher, Controller
+    Pass Publisher, Controller to Proxy
+    Unit tests
+  Integration tests
+    Verify Publisher, Controller, and Proxy interact correctly
+
+Consensus Engine (12/15)
+  Create Consensus Messages
+    Create new messages in consensus.proto
+    Create new message handlers (Pass through to proxy)
+    Unit tests (mock proxy class)
+  Create Consensus Proxy Class
+    Define interface (2 directions)
+      Passing messages from handlers to Engine
+      Passing messages from engine to Publisher
+      Passing messages from engine to Controller
+      Passing messages from engine to  Network
+    Implement interface
+    Unit tests
+  Create Go Consensus Engine SDK
+    Implement (reference design doc)
+      P2P messaging
+      Event handlers
+      Block creation
+      Block management
+      Query methods
+      Engine methods
+    Unit tests (use Go Mock for connection, see Go SDK)
+  Integration tests
+    Verify handlers, proxy, and SDK interact correctly
+
+Integration Tests
+  "Unconsensus" Engine for testing
+  Verify Engine and Validator communicate correctly
+  Setup LR parity test (reusable for demo?)
+
+Raft Prototype (12/31)
+  Map etcd/raft API to consensus engine interface (See "Research/Raft Example")
+  Add etcd/raft packages to BoM, dependencies
+  Implement with Consensus Engine SDK
