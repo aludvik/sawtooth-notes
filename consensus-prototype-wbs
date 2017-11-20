@@ -49,6 +49,8 @@ Integration Tests
   Setup LR parity test (reusable for demo?)
 
 Raft Prototype (12/31)
-  Map etcd/raft API to consensus engine interface (See "Research/Raft Example")
   Add etcd/raft packages to BoM, dependencies
+  Integrate etcd/raft API into consensus engine interface (See "Research/Raft Example")
   Implement with Consensus Engine SDK
+  Unit tests (use Go Mock for connection)
+  Demo
