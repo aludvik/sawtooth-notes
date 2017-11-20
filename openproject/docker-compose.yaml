@@ -1,0 +1,13 @@
+version: "3"
+services:
+  openproject:
+    image: "openproject/community:7"
+    container_name: "openproject"
+    ports:
+      - "8080:80"
+    volumes:
+      - "./data/pgdata:/var/lib/postgresql/9.4/main"
+      - "./data/logs:/var/log/supervisor"
+      - "./data/static:/var/db/openproject"
+    environment:
+      SECRET_KEY_BASE: secret
