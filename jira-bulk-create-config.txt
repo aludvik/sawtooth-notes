@@ -1,0 +1,37 @@
+{
+  "config.version" : "2.0",
+  "config.project.from.csv" : "false",
+  "config.encoding" : "UTF-8",
+  "config.email.suffix" : "@",
+  "config.field.mappings" : {
+    "Assignee" : {
+      "jira.field" : "assignee"
+    },
+    "Issue Type" : {
+      "jira.field" : "issuetype"
+    },
+    "Description" : {
+      "jira.field" : "description"
+    },
+    "Label" : {
+      "jira.field" : "labels"
+    },
+    "Summary" : {
+      "jira.field" : "summary"
+    },
+    "Epic Link" : {
+      "existing.custom.field" : "10006"
+    }
+  },
+  "config.value.mappings" : { },
+  "config.delimiter" : ",",
+  "config.project" : {
+    "project.type" : null,
+    "project.key" : "STL",
+    "project.description" : null,
+    "project.url" : null,
+    "project.name" : "Sawtooth Lake",
+    "project.lead" : "mfford"
+  },
+  "config.date.format" : "dd/MMM/yy h:mm a"
+}
