@@ -1,9 +1,6 @@
 Test
 Error
 
-transactor_permissioning
-rest-api_1 exited with code 139
-
 two_families
 [2017-11-14 23:41:16.821 WARNING  route_handlers] Timed out while waiting for validator response
 
@@ -11,13 +8,13 @@ test_network_permissioning
 [36mtest-network-permissioning_1  |[0m [32m[2017-11-13 20:39:39.819 INFO     cli][0m [37mInitiating graceful shutdown (press Ctrl+C again to force)[0m
 [36mtest-network-permissioning_1  |[0m [32m[2017-11-13 20:39:39.820 INFO     cli][0m [37mInitiating graceful shutdown (press Ctrl+C again to force)[0m
 [36mtest-network-permissioning_1  |[0m [31m[2017-11-13 20:39:39.826 ERROR    base_events][0m [37mTask was destroyed but it is pending!
-[36mtest-network-permissioning_1  |[0m task: <Task pending coro=<StateDeltaSubscriberHandler._handle_disconnect() running at /project/sawtooth-core/rest_api/sawtooth_rest_api/state_delta_subscription_handler.py:173>>[0m
+[36mtest-network-permissioning_1  |[0m task: <Task pending coro=<StateDeltaSubscriberHandler._handle_disconnect() running at /project/sawtooth-core/rest_api/sawtooth_rest_api/sawtooth/state-delta_subscription_handler.py:173>>[0m
 [36mtest-network-permissioning_1  |[0m /usr/lib/python3.5/asyncio/base_events.py:412: RuntimeWarning: coroutine 'StateDeltaSubscriberHandler._handle_disconnect' was never awaited
 [36mtest-network-permissioning_1  |[0m   self._ready.clear()
 [36mtest-network-permissioning_1  |[0m ======== Running on http://127.0.0.1:8081 ========
 [36mtest-network-permissioning_1  |[0m (Press CTRL+C to quit)
 [36mtest-network-permissioning_1  |[0m [31m[2017-11-13 20:39:39.829 ERROR    base_events][0m [37mTask was destroyed but it is pending!
-[36mtest-network-permissioning_1  |[0m task: <Task pending coro=<StateDeltaSubscriberHandler._handle_disconnect() running at /project/sawtooth-core/rest_api/sawtooth_rest_api/state_delta_subscription_handler.py:173>>[0m
+[36mtest-network-permissioning_1  |[0m task: <Task pending coro=<StateDeltaSubscriberHandler._handle_disconnect() running at /project/sawtooth-core/rest_api/sawtooth_rest_api/sawtooth/state-delta_subscription_handler.py:173>>[0m
 [36mtest-network-permissioning_1  |[0m /usr/lib/python3.5/asyncio/base_events.py:412: RuntimeWarning: coroutine 'StateDeltaSubscriberHandler._handle_disconnect' was never awaited
 [36mtest-network-permissioning_1  |[0m   self._ready.clear()
 [36mtest-network-permissioning_1  |[0m ======== Running on http://127.0.0.1:8080 ========
