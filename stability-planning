@@ -1,0 +1,57 @@
+# Reactive
+- Continue to react to LR issues
+  - Triage, create bug, assign sooner rather than later
+  - Track issues again
+
+# Proactive
+- General:
+  - Networking, threading model
+  - Improve block cache model
+  - Improve message processing/handling
+    (continues to consumer more cpu, GIL, too much message handling causes
+     processing block to take longer and longer)
+    - Minimize the amount of messages being passed
+    - Stochastic gossip
+    - Eliminate unnecessary acks
+    - Back-pressure on message handling (highwater?)
+  - Improve architecture for analytics collection
+  - Untangle/untwine architecture to simplify reasoning
+  - Introspection
+    - Add more knobs
+    - If the queue is full, reject batches/messages (configuration)
+    - Self-throttling
+    - "Max pending batch queue depth"
+      - also affects block processing
+  - Investigate how chain controller lock and block publisher interact to make
+    sure the chain controller isn't being starved out
+
+- Specifics:
+  - Update workload to send multiple transactions per batch (Q1)
+  - Duplicate {block, batch} responses are not being dropped (they should be). Be
+    careful to not break responder. (check with Andi)
+  - Fix authorization violations (if its a new message we're never going to get a
+    response, since we're closing the connection. don't wait for response. fire
+    and forget)
+
+# Tooling Support
+- Setup tooling to examine core dumps
+- More commands for inspecting a network (sawtooth cli, lrmgr, other tools)
+  - Examine peering graph
+  - Repeating transactions in a particular block to determine if there is a
+    non-determinism issue
+  - Commands for inspecting and fixing the network
+    - Find last common block
+      - `sawtooth compare-chain http://rest-api-a:8008/ http://rest-api-b:8008/`
+      -  python code from old lr website, https://github.com/IntelLedger/sawtooth-ci/blob/c1e63ede50b85c42a7adca7b8e44cf2960c05ba2/longrun/lrmgr/monitor/divergence.py
+    `sawtooth validate-chain http://rest-api-a:8008/`
+    `sawadm compare http://rest-api-a:8008/ http://rest-api-b:8008/`
+    `sawadm prune <block-id>' -- removes all blocks after <block-id> from the block store (must be run off-line`
+- Unpinning and upgrading versions of dependencies
+
+# Notes
+- CPU utilization
+- Python GIL fair-threading model
+- How to keep a node from tipping over no matter what?
+- At what layers can "introspection" be introduced?
+  - ZMQ high water mark
+  - Max queue sizes
