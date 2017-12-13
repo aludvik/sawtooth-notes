@@ -24,6 +24,6 @@ BlockValidator also does:
 Possible next steps:
 - move the blocks processing and pending queues into the block validator
 - remove (all?) references to the chain head from the block validator
-- remove `consensus` from the `BlockValidator.process_block_verification()`
+- remove `consensus` from the `BlockValidator.process_block_validation()`
   arguemts and instead load it when the block is processed
 - remove `callback` from the same and instead use the Observer pattern (edited)
