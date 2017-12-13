@@ -1,0 +1,20 @@
+Common Block Number
+Blocks Since Common Block Number for each Node
+  For each Node
+  Minimum
+  Maximum
+Common Ancestor
+Blocks Since Common Ancestor
+  For each Node
+  Minimum
+  Maximum
+Fork Pyramid
+
+Formats
+  JSON
+  YAML
+  CLI
+
+Blockhash of Common
+Blockhash of Common + Table of how far back that block is
+Columnar output
