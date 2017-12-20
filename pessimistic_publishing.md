@@ -39,8 +39,13 @@ abort.
 The initial implementation of the `check_build_candidate_block()` method should
 perform the following checks:
 
-- If the current length of the block validation queue is greater than some
-  quantity N >= 0, return False.
+- Are there any batches in my pending batches queue? If no, return False.
+- Are there any blocks in my block validation queue? If no, return True.
+- Should I try to publish a block even though there are blocks in my block
+  validation queue? If yes, return True.
+    - Are we being DoS'ed?
+    - Are all the blocks from long chains, or is there a high fan-out?
+    - Do the blocks make sense from a fast fuzzy fork forecasting perspective?
 - (Optional) For M >= 0, if the last M blocks that we have tried to publish
   have been rejected, return False.
 
